@@ -12,58 +12,52 @@ import { FrontOfficeComponent } from './front-office/front-office/front-office.c
 const routes: Routes = [
   {
     path: '',
-    redirectTo : 'user/home',
-    pathMatch : 'full'
-  }, 
+    redirectTo: 'user/home',
+    pathMatch: 'full',
+  },
   {
     path: 'admin',
-    component: HomeBackComponent,  children:[
+    component: HomeBackComponent,
+    children: [
       {
-        path: '',
-        component: HomeComponent,
-
-
+        path: 'advertising',
+        loadChildren: () =>
+          import('./back-office/advertising/advertising.module').then(
+            (m) => m.AdvertisingModule
+          ),
       },
-    
-      { path: 'advertising',
-  loadChildren: () =>
-      import('./back-office/advertising/advertising.module').then((m) => m.AdvertisingModule),
+    ],
   },
-    ]
-  },
-  
-
-  
 
   {
     path: 'user',
     component: FrontOfficeComponent,
-    children:[
+    children: [
       {
         path: '',
         component: HomeComponent,
       },
       {
         path: 'home',
-        component: HomeComponent
+        component: HomeComponent,
       },
       {
         path: 'buy',
-        component: BuyComponent
+        component: BuyComponent,
       },
       {
         path: 'rent',
-        component: RentComponent
+        component: RentComponent,
       },
       {
         path: 'login',
-        component: LoginComponent
-      }  , 
+        component: LoginComponent,
+      },
       {
         path: 'submit',
-        component: SubmitComponent
-      }     ,
-    ]
+        component: SubmitComponent,
+      },
+    ],
   },
 
   //  {path: 'buy',component:BuyComponent},
@@ -71,14 +65,10 @@ const routes: Routes = [
   //  {path: 'login',component:LoginComponent},
   //  {path: 'submit',component:SubmitComponent},
   //  {path: 'contact',component:ContactComponent}
-
-
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
-
-
+export class AppRoutingModule {}

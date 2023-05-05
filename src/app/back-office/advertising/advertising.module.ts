@@ -5,16 +5,22 @@ import { AdvertisingRoutingModule } from './advertising-routing.module';
 import { AdvertisingListComponent } from './components/advertising-list/advertising-list.component';
 import { AdvertisingAddEditComponent } from './components/advertising-add-edit/advertising-add-edit.component';
 import { AdvertisingComponent } from './advertising.component';
-import {MatCardModule} from '@angular/material/card';
-import {MatTableModule} from '@angular/material/table';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatCardModule } from '@angular/material/card';
+import { MatTableModule } from '@angular/material/table';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { DateAdapter, MAT_DATE_FORMATS, MatNativeDateModule } from '@angular/material/core';
-import {MatInputModule} from '@angular/material/input';
+import {
+  DateAdapter,
+  MAT_DATE_FORMATS,
+  MatNativeDateModule,
+} from '@angular/material/core';
+import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
+import { AdvertisingService } from './services/advertising.service';
+import { HttpClientModule } from '@angular/common/http';
 
 export const MY_DATE_FORMATS = {
   parse: {
@@ -24,14 +30,14 @@ export const MY_DATE_FORMATS = {
     dateInput: 'YYYY-MM-DD',
     monthYearLabel: 'MMMM YYYY',
     dateA11yLabel: 'LL',
-    monthYearA11yLabel: 'MMMM YYYY'
+    monthYearA11yLabel: 'MMMM YYYY',
   },
 };
 @NgModule({
   declarations: [
     AdvertisingListComponent,
     AdvertisingAddEditComponent,
-    AdvertisingComponent
+    AdvertisingComponent,
   ],
   imports: [
     CommonModule,
@@ -46,13 +52,14 @@ export const MY_DATE_FORMATS = {
     MatButtonModule,
     MatIconModule,
     FormsModule,
-    MatDialogModule
+    MatDialogModule,
+    HttpClientModule
   ],
   providers: [
     MatDatepickerModule,
+    AdvertisingService,
     MatNativeDateModule,
-    { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS }
-
-  ]
+    { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS },
+  ],
 })
-export class AdvertisingModule { }
+export class AdvertisingModule {}
