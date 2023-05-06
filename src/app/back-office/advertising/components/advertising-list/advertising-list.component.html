@@ -18,7 +18,7 @@
 <div style="display: flex;justify-content: center;" [formGroup]="advertisingForm">
   <div style="display: flex;">
     <div style="margin-right: 10px;">
-      Date début
+      Start Date
     </div>
     <div>
       <input type="date" name="dateofbirth" id="dateofbirth" formControlName="start">
@@ -26,7 +26,7 @@
   </div>
   <div style="display: flex;margin-left: 20px;">
     <div style="margin-right: 10px;">
-      Date fin
+      End Date:
     </div>
     <div>
       <input type="date" name="dateofbirth" id="dateofbirth" formControlName="end">
@@ -49,6 +49,13 @@
 
       </i>
     </a>
+
+
+    <a href="mailto:{{ advertising.socityName}}">
+      <i class="fa fa-envelope" style="display: inline-block; margin-left: 5px;"></i> 
+    </a>
+
+    
       <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
         <mat-card-title>{{advertising.title}}</mat-card-title>
@@ -56,7 +63,7 @@
       <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
       <mat-card-content>
 
-        <div> description: {{advertising.description}} </div>
+        <div  style="height: 80px;"> description: {{advertising.description}} </div>
         <div> startDate: {{advertising.startDate | date}}</div>
         <div> endDate: {{advertising.endDate | date}}</div>
         <div> coutParJour: {{advertising.coutParJour}}</div>
@@ -64,9 +71,12 @@
         <div>coutParVueCible: {{advertising.coutParVueCible}}</div>
         <div>gainPublicitaire: {{advertising.gainPublicitaire}}</div>
         <div>nbrVuesFinal: {{advertising.nbrVuesFinal}}</div>
-        <div>socityName: {{advertising.socityName}}</div>
+        <div  style="height: 50px;">socityName: {{advertising.socityName}}</div>
 
-        <a><img [src]="'assets/'+ advertising.image"></a>
+        <!-- <a><img [src]="'assets/'+ advertising.image"></a> -->
+        <a>
+          <img class="ad-image" [src]="'assets/' + advertising.image">
+        </a>
 
       </mat-card-content>
       <mat-card-actions>

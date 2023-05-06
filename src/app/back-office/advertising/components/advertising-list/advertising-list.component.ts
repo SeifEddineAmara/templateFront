@@ -54,6 +54,9 @@ export class AdvertisingListComponent implements OnInit {
   addAdvertising() {
     const dialogRef = this.dialog.open(AdvertisingAddEditComponent, {
       width: '400px',
+      //data: { mode: 'add' }, // passe le mode "add"
+
+      
     });
 
     dialogRef.afterClosed().subscribe((result: any) => {
@@ -103,6 +106,8 @@ export class AdvertisingListComponent implements OnInit {
     const dialogRef = this.dialog.open(AdvertisingAddEditComponent, {
       width: '400px',
       data: advertising,
+     // data: { advertising , mode: 'edit' }, // passe le mode "edit"
+
     });
 
     dialogRef.afterClosed().subscribe((result: any) => {
